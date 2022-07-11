@@ -9,10 +9,11 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
-    background-image: conic-gradient(aqua, lime);
+    background-image: conic-gradient(#FF9415, #FFC709);
 }
 
 .viewport {
+    position: relative;
     display: flex;
     width: 800px;
     height: 400px;
@@ -25,62 +26,60 @@ body {
 }
 
 .card {
-    position: relative;
-    z-index: 10;
-    flex-grow: 1;
+    position: absolute;
+    width: 390px;
+    right: 10px;
+    top: 10px;
+    bottom: 10px;
     border: 1px solid #000;
     background-color: #fff;
     transition-duration: 1s;
-}
-
-.card:nth-child(1) {
-    z-index: 10;
-    border-top-left-radius: 10px;
-    border-bottom-left-radius: 10px;
-    background-color: pink;
-    transform-origin: right;
-}
-
-.card:nth-child(2) {
-    border-top-right-radius: 10px;
-    border-bottom-right-radius: 10px;
     transform-origin: left;
 }
 
-.left-wrapper,
-.right-wrapper {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 50%;
+.card:nth-child(1) {
+    z-index: 3;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    background-color: #6E36CA;
 }
 
-.left-wrapper {
-    left: 0;
-    border: 1px solid #000;
+.card:nth-child(2) {
+    z-index: 2;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    background-color: #B40A1B;
 }
 
-.right-wrapper {
-    right: 0;
-    border: 1px solid red;
+.card:nth-child(3) {
+    z-index: 1;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    background-color: orange;
 }
 
 #item-1:checked ~ .viewport .card:nth-child(1) {
-    transform: rotateY(180deg);
+    transform: rotateY(0deg);
     z-index: 20;
 }
 
 #item-2:checked ~ .viewport .card:nth-child(1) {
-    transform: rotateY(0deg);
+    transform: rotateY(-180deg);
 }
 
+#item-3:checked ~ .viewport .card:nth-child(1),
 #item-3:checked ~ .viewport .card:nth-child(2) {
     transform: rotateY(-180deg);
     z-index: 20;
 }
+
+#item-4:checked ~ .viewport .card:nth-child(1),
+#item-4:checked ~ .viewport .card:nth-child(2),
+#item-4:checked ~ .viewport .card:nth-child(3) {
+    transform: rotateY(-180deg);
+    z-index: 20;
+}
+
 
 
 input {
@@ -91,13 +90,17 @@ input {
 }
 
 input:nth-child(1) {
-    left: calc(50% - 30px);
+    left: calc(50% - 45px);
 }
 
 input:nth-child(2) {
-    left: 50%;
+    left: calc(50% - 15px);
 }
 
 input:nth-child(3) {
-    left: calc(50% + 30px);
+    left: calc(50% + 15px);
+}
+
+input:nth-child(4) {
+    left: calc(50% + 45px);
 }
