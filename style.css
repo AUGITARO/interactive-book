@@ -9,7 +9,7 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
-    background-image: conic-gradient(gold, lime);
+    background-image: conic-gradient(aqua, lime);
 }
 
 .viewport {
